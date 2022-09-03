@@ -4,7 +4,7 @@ const machine_password = 'rocketchat' //changeme
 class Script {
   prepare_outgoing_request({ request }) {
     const [cmd, verb, ip, ...args] = request.data.text.split(" ")
-    // cmd=/cs|/crowdsec ip=127.0.0.2 args=[limit,1000,duration,6h]
+    // cmd=/cs|/crowdsec verb=check|ban|heartbeat ip=127.0.0.2 args=[limit,1000,duration,6h]
     const { result: res } = HTTP("POST",`${request.url}/watchers/login`, {
         data: {
             machine_id: machine_name,
